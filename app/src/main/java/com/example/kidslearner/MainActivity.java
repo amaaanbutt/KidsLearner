@@ -13,7 +13,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     Button SkyBtn, GrassBtn, RootBtn;
-    TextView LetterText;
+    TextView LetterText, ResultText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +24,14 @@ public class MainActivity extends AppCompatActivity {
         RootBtn = findViewById(R.id.btnRoot);
         GrassBtn = findViewById(R.id.btnGrass);
         LetterText = findViewById(R.id.txtLetter);
+        ResultText = findViewById(R.id.txtResult);
 
         String[] skyLetter ={"d","h","l","k","t","b","f"};
         String[] rootLetter ={"g","j","p","q","y"};
         String[] grassLetter ={"a","c","e","i","m","n","o","r","s","u","v","w","x","z"};
 
         String result = "";
+
         int category=0, index=0;
 
         Random rnd = new Random();
@@ -49,24 +51,40 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        String finalResult = result;
         SkyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if ("SKY".equals(finalResult)){
+                    ResultText.setText("Right Answer :)");
+                }
+                else{
+                    ResultText.setText("Wrong Answer :(");
+                }
             }
         });
 
         RootBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if ("ROOT".equals(finalResult)){
+                    ResultText.setText("Right Answer :)");
+                }
+                else{
+                    ResultText.setText("Wrong Answer :(");
+                }
             }
         });
 
         GrassBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if ("GRASS".equals(finalResult)){
+                    ResultText.setText("Right Answer :)");
+                }
+                else{
+                    ResultText.setText("Wrong Answer :(");
+                }
             }
         });
     }
