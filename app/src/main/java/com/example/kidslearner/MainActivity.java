@@ -13,7 +13,9 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     Button SkyBtn, GrassBtn, RootBtn;
-    TextView LetterText, ResultText;
+    TextView LetterText, ResultText, RightScore, WrongScore;
+    int right = 0;
+    int wrong = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         GrassBtn = findViewById(R.id.btnGrass);
         LetterText = findViewById(R.id.txtLetter);
         ResultText = findViewById(R.id.txtResult);
+        RightScore = findViewById(R.id.txtRightScore);
+        WrongScore = findViewById(R.id.txtWrongScore);
 
         String[] skyLetter ={"d","h","l","k","t","b","f"};
         String[] rootLetter ={"g","j","p","q","y"};
@@ -32,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         String result = "";
 
-        int category=0, index=0;
+        int category=0;
+        int index=0;
+
 
         Random rnd = new Random();
         category = rnd.nextInt(3);
@@ -57,9 +63,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if ("SKY".equals(finalResult)){
                     ResultText.setText("Right Answer :)");
+                    right++;
+                    RightScore.setText(right);
                 }
                 else{
                     ResultText.setText("Wrong Answer :(");
+                    wrong++;
+                    WrongScore.setText(wrong);
                 }
             }
         });
@@ -69,9 +79,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if ("ROOT".equals(finalResult)){
                     ResultText.setText("Right Answer :)");
+                    right++;
+                    RightScore.setText(right);
                 }
                 else{
                     ResultText.setText("Wrong Answer :(");
+                    wrong++;
+                    WrongScore.setText(wrong);
                 }
             }
         });
@@ -81,9 +95,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if ("GRASS".equals(finalResult)){
                     ResultText.setText("Right Answer :)");
+                    right++;
+                    RightScore.setText(right);
                 }
                 else{
                     ResultText.setText("Wrong Answer :(");
+                    wrong++;
+                    WrongScore.setText(wrong);
                 }
             }
         });
